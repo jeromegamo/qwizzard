@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E03843B23F0A44B00FDBEE0 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E03843A23F0A44B00FDBEE0 /* Term.swift */; };
 		4E32167A23E8E063006B2288 /* TermEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E32167923E8E063006B2288 /* TermEditingView.swift */; };
 		4E6FA16923E5152600EF4DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FA16823E5152600EF4DCC /* AppDelegate.swift */; };
 		4E6FA16B23E5152600EF4DCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FA16A23E5152600EF4DCC /* SceneDelegate.swift */; };
@@ -15,9 +16,12 @@
 		4E6FA17223E5152800EF4DCC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E6FA17123E5152800EF4DCC /* Preview Assets.xcassets */; };
 		4E6FA17523E5152800EF4DCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E6FA17323E5152800EF4DCC /* LaunchScreen.storyboard */; };
 		4E721F5123E7782B0034B218 /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E721F5023E7782B0034B218 /* TermsView.swift */; };
+		4E932F8F23ECF3B800997613 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E932F8E23ECF3B800997613 /* CardView.swift */; };
+		4E932F9123ECF4F500997613 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E932F9023ECF4F500997613 /* CardsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E03843A23F0A44B00FDBEE0 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
 		4E32167923E8E063006B2288 /* TermEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermEditingView.swift; sourceTree = "<group>"; };
 		4E6FA16523E5152600EF4DCC /* qwizzard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwizzard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6FA16823E5152600EF4DCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		4E6FA17423E5152800EF4DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E6FA17623E5152800EF4DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4E721F5023E7782B0034B218 /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		4E932F8E23ECF3B800997613 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		4E932F9023ECF4F500997613 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,9 @@
 				4E6FA17023E5152800EF4DCC /* Preview Content */,
 				4E721F5023E7782B0034B218 /* TermsView.swift */,
 				4E32167923E8E063006B2288 /* TermEditingView.swift */,
+				4E932F8E23ECF3B800997613 /* CardView.swift */,
+				4E932F9023ECF4F500997613 /* CardsView.swift */,
+				4E03843A23F0A44B00FDBEE0 /* Term.swift */,
 			);
 			path = qwizzard;
 			sourceTree = "<group>";
@@ -152,10 +161,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E932F9123ECF4F500997613 /* CardsView.swift in Sources */,
 				4E6FA16923E5152600EF4DCC /* AppDelegate.swift in Sources */,
 				4E32167A23E8E063006B2288 /* TermEditingView.swift in Sources */,
 				4E721F5123E7782B0034B218 /* TermsView.swift in Sources */,
 				4E6FA16B23E5152600EF4DCC /* SceneDelegate.swift in Sources */,
+				4E03843B23F0A44B00FDBEE0 /* Term.swift in Sources */,
+				4E932F8F23ECF3B800997613 /* CardView.swift in Sources */,
 				4E6FA16D23E5152600EF4DCC /* TermCreationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

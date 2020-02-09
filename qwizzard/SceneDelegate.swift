@@ -20,7 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = TermsView()
+        let contentView = TermsView { () -> [Term] in
+           return [
+            Term(question: "interminable", answer: "endless"),
+            Term(question: "replete", answer: "well-supplied"),
+            Term(question: "matron", answer: "old married woman")]
+        }
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
