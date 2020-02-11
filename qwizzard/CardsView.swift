@@ -13,30 +13,14 @@ struct CardsView: View {
     
     @GestureState<[CGSize]> private var dictOffset : [CGSize]
     @State private var cards: [Term]
-    
+    @State private var didReachEnd = false
     var body: some View {
         GeometryReader { g in
-            ZStack {
-                ForEach(self.cards.indices, id: \.self) { c in
-                    
-                    CardView(term: self.cards[c])
-                        .frame(width: g.size.width,
-                               height: g.size.height)
-                        .background(Color.green)
-                        .offset(self.dictOffset[c])
-                        .gesture(DragGesture()
-                            .updating(self.$dictOffset, body: { (value, state, transaction) in
-                                state[c] = value.translation
-                            })
-                            .onChanged({ (value) in
-                                if self.isOverbounds(value: value) {
-                                    print("Outside") // TODO: remove in the future
-                                    self.cards.popLast()
-                                } else {
-                                    print("Inside") // TODO: Remove in the future
-                                }
-                            }))
-                }
+            if self.didReachEnd {
+                TermsCompleteView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                self.cardViews(g: g)
             }
         }
     }
@@ -63,6 +47,31 @@ struct CardsView: View {
         abs(value.startLocation.x - value.location.x) > 100
     }
     
+    func cardViews(g: GeometryProxy) -> some View {
+        ZStack {
+            ForEach(self.cards.indices, id: \.self) { c in
+                
+                CardView(term: self.cards[c])
+                    .frame(width: g.size.width,
+                           height: g.size.height)
+                    .background(Color.green)
+                    .offset(self.dictOffset[c])
+                    .gesture(DragGesture()
+                        .updating(self.$dictOffset, body: { (value, state, transaction) in
+                            state[c] = value.translation
+                        })
+                        .onChanged({ (value) in
+                            if self.isOverbounds(value: value) {
+                                _ = self.cards.popLast()
+                            }
+                            
+                            if self.cards.count == 1 {
+                                self.didReachEnd = true
+                            }
+                        }))
+            }
+        }
+    }
 }
 
 struct CardsView_Previews: PreviewProvider {

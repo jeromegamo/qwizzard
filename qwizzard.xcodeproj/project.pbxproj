@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E03843B23F0A44B00FDBEE0 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E03843A23F0A44B00FDBEE0 /* Term.swift */; };
+		4E0F2AC823F21CEA0065AB30 /* TermsCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F2AC723F21CEA0065AB30 /* TermsCompleteView.swift */; };
 		4E32167A23E8E063006B2288 /* TermEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E32167923E8E063006B2288 /* TermEditingView.swift */; };
 		4E6FA16923E5152600EF4DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FA16823E5152600EF4DCC /* AppDelegate.swift */; };
 		4E6FA16B23E5152600EF4DCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FA16A23E5152600EF4DCC /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		4E03843A23F0A44B00FDBEE0 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		4E0F2AC723F21CEA0065AB30 /* TermsCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsCompleteView.swift; sourceTree = "<group>"; };
 		4E32167923E8E063006B2288 /* TermEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermEditingView.swift; sourceTree = "<group>"; };
 		4E6FA16523E5152600EF4DCC /* qwizzard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwizzard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E6FA16823E5152600EF4DCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				4E932F8E23ECF3B800997613 /* CardView.swift */,
 				4E932F9023ECF4F500997613 /* CardsView.swift */,
 				4E03843A23F0A44B00FDBEE0 /* Term.swift */,
+				4E0F2AC723F21CEA0065AB30 /* TermsCompleteView.swift */,
 			);
 			path = qwizzard;
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			files = (
 				4E932F9123ECF4F500997613 /* CardsView.swift in Sources */,
 				4E6FA16923E5152600EF4DCC /* AppDelegate.swift in Sources */,
+				4E0F2AC823F21CEA0065AB30 /* TermsCompleteView.swift in Sources */,
 				4E32167A23E8E063006B2288 /* TermEditingView.swift in Sources */,
 				4E721F5123E7782B0034B218 /* TermsView.swift in Sources */,
 				4E6FA16B23E5152600EF4DCC /* SceneDelegate.swift in Sources */,
