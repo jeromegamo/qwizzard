@@ -9,10 +9,13 @@
 import SwiftUI
 
 struct TermsCompleteView: View {
+    let didRetry: () -> Void
     var body: some View {
         VStack {
             Text("You've reached the end")
-            Button(action: {},
+            Button(action: {
+                self.didRetry()
+            },
                    label: {
                     Text("Retry?")
                 }).padding()
@@ -20,10 +23,16 @@ struct TermsCompleteView: View {
                 .foregroundColor(.white)
         }
     }
+    
+    init(didRetry: @escaping () -> Void) {
+        self.didRetry = didRetry
+    }
 }
 
 struct TermsCompleteView_Previews: PreviewProvider {
     static var previews: some View {
-        TermsCompleteView()
+        TermsCompleteView {
+            
+        }
     }
 }

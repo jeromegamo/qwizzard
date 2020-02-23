@@ -15,6 +15,10 @@ struct CardView: View {
             Text(term.question)
             Text(term.answer)
         }
+        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.green.shadow(radius: 2))
+        .padding()        
     }
     
     init(term: Term) {

@@ -34,7 +34,7 @@ struct TermsView: View {
                 HStack {
                     NavigationLink(destination:
                         
-                        CardsView()
+                        LearnView(viewModel: LearnViewModel())
                         
                     ) {
                         Image(systemName: "play")
