@@ -8,21 +8,6 @@
 
 import SwiftUI
 
-class TermRepository: ObservableObject {
-    func getTerms() -> [Term]{
-        return [
-            Term(
-            question: "Question #1", answer: "Answer #1"),
-            Term(
-            question: "Question #2", answer: "Answer #2"),
-            Term(
-            question: "Question #3", answer: "Answer #3"),
-            Term(
-            question: "Question #4", answer: "Answer #4")
-        ]
-    }
-}
-
 class LearnViewModel {
     var terms: [Term] = [
         Term(
@@ -34,6 +19,19 @@ class LearnViewModel {
         Term(
         question: "Question #4", answer: "Answer #4")
     ]
+    
+    func reloadData() {
+        self.terms = [
+            Term(
+            question: "Question #1", answer: "Answer #1"),
+            Term(
+            question: "Question #2", answer: "Answer #2"),
+            Term(
+            question: "Question #3", answer: "Answer #3"),
+            Term(
+            question: "Question #4", answer: "Answer #4")
+        ]
+    }
 }
 
 enum DragState {
@@ -50,43 +48,25 @@ enum DragState {
 }
 
 struct LearnView: View {
-    @EnvironmentObject var termRepo: TermRepository
-    
     @GestureState var dragState = DragState.inactive
     @State private var cardViews: [Term] = []
+    @State private var noCardsLeft = false
     
     let dragThreshold: CGFloat = 80
     var viewModel : LearnViewModel
     
-    var body: some View {
-        
-        ZStack {
-            ForEach(cardViews, id: \.self) { term in
+    fileprivate func cardViewsStack() -> some View {
+        return ZStack {
+            ForEach(cardViews) { term in
                 CardView(term: term)
                     .zIndex(self.isTopCard(term) ? 1 : 0)
                     .offset(self.isTopCard(term) ? self.dragState.translation : .zero)
                     .gesture(
                         LongPressGesture(minimumDuration: 0.01)
-                        .sequenced(before: DragGesture())
-                        .updating(self.$dragState, body: { (value, state, translation) in
-                            switch value {
-                            case .first(true):
-                                state = .pressing
-                            case .second(true, let drag):
-                                state = .dragging(translation: drag?.translation ?? .zero)
-                            default: break
-                            }
-                        })
-                        .onEnded({ (v) in
-                            guard case .second(true, let drag?) = v else {
-                                return
-                            }
-                            print("\(drag.translation.width) - \(self.dragThreshold)")
-                            if abs(drag.translation.width) > self.dragThreshold {
-                                self.removeTopCard()
-                            }
-                        })
-                    )       
+                            .sequenced(before: DragGesture())
+                            .updating(self.$dragState, body: self.dragUpdate)
+                            .onEnded(self.dragDidEnd)
+                )
             }
         }
         .onAppear {
@@ -94,11 +74,25 @@ struct LearnView: View {
         }
     }
     
-    func initialLoadOfCardViews() {
+    var body: some View {
+        VStack {
+            if noCardsLeft {
+                TermsCompleteView {
+                    self.viewModel.reloadData()
+                    self.initialLoadOfCardViews()
+                    self.noCardsLeft = false
+                }
+            } else {
+                cardViewsStack()
+            }
+        }
+    }
+    
+    private func initialLoadOfCardViews() {
         self.cardViews = Array(self.viewModel.terms.prefix(2))
     }
     
-    func isTopCard(_ term: Term) -> Bool {
+    private func isTopCard(_ term: Term) -> Bool {
         guard let last = self.viewModel.terms.first else {
             return false
         }
@@ -106,9 +100,40 @@ struct LearnView: View {
         return last.question == term.question
     }
 
-    func removeTopCard() {
+    private func removeTopCard() {
         let _ = self.viewModel.terms.removeFirst()
         self.cardViews = Array(self.viewModel.terms.prefix(2))
+    }
+    
+    private func dragUpdate(
+        _ value: SequenceGesture<LongPressGesture, DragGesture>.Value,
+        _ state: inout DragState,
+        _ translation: inout Transaction) -> Void {
+        
+        switch value {
+        case .first(true):
+            state = .pressing
+        case .second(true, let drag):
+            state = .dragging(translation: drag?.translation ?? .zero)
+        default: break
+        }
+    }
+    
+    private func dragDidEnd(
+        _ value: SequenceGesture<LongPressGesture,
+                                 DragGesture>.Value) {
+        
+        guard case .second(true, let drag?) = value else {
+            return
+        }
+        
+        if abs(drag.translation.width) > self.dragThreshold {
+            self.removeTopCard()
+        }
+        
+        if self.cardViews.isEmpty {
+            self.noCardsLeft = true
+        }
     }
     
     init(viewModel: LearnViewModel) {

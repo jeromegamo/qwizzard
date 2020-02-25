@@ -20,53 +20,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F422E82E-D3C3-4578-B5A0-817B39567F0F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "qwizzard/LearnView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
-            landmarkName = "isTopCard(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F422E82E-D3C3-4578-B5A0-817B39567F0F - 83b694e4586e1b07"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "qwizzard.LearnView.isTopCard(qwizzard.Term) -&gt; Swift.Bool"
-                  moduleName = "qwizzard"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jeromegamo/Projects/qwizzard/qwizzard/LearnView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "273">
-               </Location>
-               <Location
-                  uuid = "F422E82E-D3C3-4578-B5A0-817B39567F0F - 5f1abc3e166b6d7c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(extension in qwizzard_PreviewReplacement_LearnView_6):qwizzard.LearnView.(__preview__isTopCard in _BEFED12218337A66E63C29CF998DF4F5)(qwizzard.Term) -&gt; Swift.Bool"
-                  moduleName = "LearnView.6.preview-thunk.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jeromegamo/Projects/qwizzard/qwizzard/LearnView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "165">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
