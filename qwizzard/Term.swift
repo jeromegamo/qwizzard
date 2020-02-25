@@ -7,16 +7,8 @@
 //
 import Foundation
 
-struct Term: Hashable {
+struct Term: Identifiable {
     let id = UUID()
     let question: String
     let answer: String
-    
-    static func ==(lhs: Term, rhs: Term) -> Bool {
-        return lhs.question == rhs.question
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(self.question)
-    }
 }

@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             Term(question: "interminable", answer: "endless"),
             Term(question: "replete", answer: "well-supplied"),
             Term(question: "matron", answer: "old married woman")]
-        }.environmentObject(TermRepository())
+        }
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

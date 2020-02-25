@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-
-
 struct TermsView: View {
     
     @State var terms: [Term]
