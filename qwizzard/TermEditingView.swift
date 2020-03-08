@@ -7,44 +7,67 @@
 //
 
 import SwiftUI
+class TermEditingViewModel: ObservableObject {
+	@Published var question: String
+	@Published var answer: String
+	let id: UUID
+	let didEditTerm : (Term) -> ()
+	let saveTerm: TermRepository.Save
+	
+	init(saveTerm: @escaping TermRepository.Save,
+			 didEditTerm: @escaping (Term) -> (),
+			 term: Term) {
+		self.saveTerm = saveTerm
+		self.didEditTerm = didEditTerm
+		self.id = term.id
+		self.question = term.question
+		self.answer = term.answer
+	}
+}
 
 struct TermEditingView: View {
-    @Environment(\.presentationMode) var presentationMode
-    @State var question: String = ""
-    @State var answer: String = ""
-    
-    let didEditTerm : (Term) -> ()
-    
-    var body: some View {
-        VStack {
-            Group {
-                TextField("Question: ", text: $question)
-                TextField("Answer: ", text: $answer)
-            }
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            
-            Button(action: {
-                self.didEditTerm(Term(
-                    question: self.question, answer: self.answer))
-                
-                 self.presentationMode.wrappedValue.dismiss()
-            }, label: {
-                Text("Save")
-            })
-            
-        }.navigationBarTitle(Text("Create"), displayMode: .inline)
-    }
-    
-    init(toEdit: Term, didEditTerm: @escaping (Term) -> ()) {
-        self.didEditTerm = didEditTerm
-        self._question = State(initialValue: toEdit.question)
-        self._answer = State(initialValue: toEdit.answer)
-    }
+	@ObservedObject var viewModel: TermEditingViewModel
+	var body: some View {
+		VStack {
+			Group {
+				TextField("Question: ", text: $viewModel.question)
+				TextField("Answer: ", text: $viewModel.answer)
+			}
+			.textFieldStyle(RoundedBorderTextFieldStyle())
+			
+			Button(action: didSave, label: {
+				Text("Save")
+			})
+			
+		}.navigationBarTitle(Text("Create"), displayMode: .inline)
+	}
+	
+	func didSave() {
+		let term = Term(id: viewModel.id,
+										question: viewModel.question,
+										answer: viewModel.answer)
+		
+		_ = viewModel.saveTerm(term)
+			.map { (error) -> Void in
+				//show error
+		}
+		
+		viewModel.didEditTerm(term)
+	}
 }
 
+
 struct TermEditingView_Previews: PreviewProvider {
-    static var previews: some View {
-        TermEditingView(toEdit: Term(question: "", answer: ""),
-                        didEditTerm: {t in })
-    }
+	static var previews: some View {
+		
+		let saveTerm: (Term) -> TermRepository.SaveError? = { term in .none }
+		let term = Term(question: "", answer: "")
+		let editTerm: (Term) -> () = {t in }
+		
+		return TermEditingView(
+			viewModel: TermEditingViewModel(
+				saveTerm: saveTerm, didEditTerm: editTerm, term: term))
+	}
+	
 }
+

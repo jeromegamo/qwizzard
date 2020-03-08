@@ -7,8 +7,40 @@
 //
 import Foundation
 
-struct Term: Identifiable, Codable {
-    let id = UUID()
-    let question: String
-    let answer: String
+struct Term: Identifiable {
+	let id: UUID
+	let question: String
+	let answer: String
+	
+	init(id: UUID = UUID(), question: String, answer: String) {
+		self.id = id
+		self.question = question
+		self.answer = answer
+	}
+	
+	enum TermCodingKeys: String, CodingKey {
+		case id
+		case question
+		case answer
+	}
+
+}
+
+extension Term: Encodable {
+	func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: TermCodingKeys.self)
+		
+		try container.encode(id, forKey: .id)
+		try container.encode(question, forKey: .question)
+		try container.encode(answer, forKey: .answer)
+	}
+}
+
+extension Term: Decodable {
+	init(from decoder: Decoder) throws {
+		let value = try decoder.container(keyedBy: TermCodingKeys.self)
+		id = try value.decode(UUID.self, forKey: .id)
+		question = try value.decode(String.self, forKey: .question)
+		answer = try value.decode(String.self, forKey: .answer)
+	}
 }
