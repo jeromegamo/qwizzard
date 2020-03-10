@@ -5,8 +5,8 @@
 //  Created by Jerome Gamo on 2/3/20.
 //  Copyright © 2020 Jerome Gamo. All rights reserved.
 //
-
 import SwiftUI
+
 class TermEditingViewModel: ObservableObject {
 	@Published var question: String
 	@Published var answer: String
@@ -27,6 +27,7 @@ class TermEditingViewModel: ObservableObject {
 
 struct TermEditingView: View {
 	@ObservedObject var viewModel: TermEditingViewModel
+	@Environment(\.presentationMode) var presentationMode
 	var body: some View {
 		VStack {
 			Group {
@@ -34,12 +35,14 @@ struct TermEditingView: View {
 				TextField("Answer: ", text: $viewModel.answer)
 			}
 			.textFieldStyle(RoundedBorderTextFieldStyle())
-			
+		}
+		.navigationBarTitle(Text("Create"),
+												displayMode: .inline)
+		.navigationBarItems(trailing:
 			Button(action: didSave, label: {
 				Text("Save")
-			})
-			
-		}.navigationBarTitle(Text("Create"), displayMode: .inline)
+			}))
+		
 	}
 	
 	func didSave() {
@@ -47,12 +50,12 @@ struct TermEditingView: View {
 										question: viewModel.question,
 										answer: viewModel.answer)
 		
-		_ = viewModel.saveTerm(term)
-			.map { (error) -> Void in
-				//show error
+		if case (.none) = viewModel.saveTerm(term) {
+			viewModel.didEditTerm(term)
+			self.presentationMode.wrappedValue.dismiss()
+		} else {
+			//show error
 		}
-		
-		viewModel.didEditTerm(term)
 	}
 }
 
@@ -64,10 +67,13 @@ struct TermEditingView_Previews: PreviewProvider {
 		let term = Term(question: "", answer: "")
 		let editTerm: (Term) -> () = {t in }
 		
-		return TermEditingView(
+		return NavigationView {
+			TermEditingView(
 			viewModel: TermEditingViewModel(
-				saveTerm: saveTerm, didEditTerm: editTerm, term: term))
+				saveTerm: saveTerm,
+				didEditTerm: editTerm,
+				term: term))
+		}
 	}
-	
 }
 

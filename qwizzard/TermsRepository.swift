@@ -8,10 +8,21 @@
 
 enum TermRepository {
 	typealias Save = (Term) -> SaveError?
+	typealias Create = (Term) -> CreateError?
 	typealias GetAll = () -> [Term]
+	typealias Delete = (Term) -> DeleteError?
 	
+	//TODO: Refactor returned errors, I have no idea yet. Not familiar
 	enum SaveError: Error {
 		case notSaved
+	}
+	
+	enum CreateError: Error {
+		case notCreated
+	}
+	
+	enum DeleteError: Error {
+		case notDeleted
 	}
 }
 

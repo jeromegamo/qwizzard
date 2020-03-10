@@ -23,7 +23,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			let contentView = TermsListView(
 				getAllTerms: JSONTermsRepository.getAll,
 				saveTerm: JSONTermsRepository.save,
-				TermsListViewModel())
+				createTerm: JSONTermsRepository.create,
+				TermsListViewModel(deleteTerm: JSONTermsRepository.delete))
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
