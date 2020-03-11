@@ -7,7 +7,7 @@
 //
 import Foundation
 
-struct Term: Identifiable {
+struct Term: Identifiable, Encodable, Decodable {
 	let id: UUID
 	let question: String
 	let answer: String
@@ -24,9 +24,6 @@ struct Term: Identifiable {
 		case answer
 	}
 
-}
-
-extension Term: Encodable {
 	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: TermCodingKeys.self)
 		
@@ -34,9 +31,7 @@ extension Term: Encodable {
 		try container.encode(question, forKey: .question)
 		try container.encode(answer, forKey: .answer)
 	}
-}
-
-extension Term: Decodable {
+	
 	init(from decoder: Decoder) throws {
 		let value = try decoder.container(keyedBy: TermCodingKeys.self)
 		id = try value.decode(UUID.self, forKey: .id)

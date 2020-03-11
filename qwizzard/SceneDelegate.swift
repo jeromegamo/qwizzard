@@ -21,10 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view that provides the window contents.
 			let contentView = TermsListView(
-				getAllTerms: JSONTermsRepository.getAll,
-				saveTerm: JSONTermsRepository.save,
-				createTerm: JSONTermsRepository.create,
-				TermsListViewModel(deleteTerm: JSONTermsRepository.delete))
+				TermsListViewModel(
+					getAllTerms: JSONTermsRepository.getAll,
+					saveTerm: JSONTermsRepository.save,
+					createTerm: JSONTermsRepository.create,
+					deleteTerm: JSONTermsRepository.delete))
         
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {

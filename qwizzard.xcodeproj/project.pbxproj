@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4E03843B23F0A44B00FDBEE0 /* Term.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E03843A23F0A44B00FDBEE0 /* Term.swift */; };
+		4E07CC1624187CDF000F2FB3 /* TermsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07CC1524187CDF000F2FB3 /* TermsListViewModel.swift */; };
+		4E07CC1924187D54000F2FB3 /* TermEditingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E07CC1824187D54000F2FB3 /* TermEditingViewModel.swift */; };
 		4E0F2AC823F21CEA0065AB30 /* TermsCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0F2AC723F21CEA0065AB30 /* TermsCompleteView.swift */; };
 		4E32167A23E8E063006B2288 /* TermEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E32167923E8E063006B2288 /* TermEditingView.swift */; };
 		4E6FA16923E5152600EF4DCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6FA16823E5152600EF4DCC /* AppDelegate.swift */; };
@@ -23,6 +25,7 @@
 		4ED2DBB32412AEA2000E1DD8 /* TermsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2DBB22412AEA2000E1DD8 /* TermsRepository.swift */; };
 		4ED2DBB52412AEDD000E1DD8 /* JSONTermsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2DBB42412AEDD000E1DD8 /* JSONTermsRepository.swift */; };
 		4ED6DF062411165100A062CC /* terms.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED6DF052411165100A062CC /* terms.json */; };
+		4EED912A2418F09A00188351 /* LearnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED91292418F09A00188351 /* LearnViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		4E03843A23F0A44B00FDBEE0 /* Term.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Term.swift; sourceTree = "<group>"; };
+		4E07CC1524187CDF000F2FB3 /* TermsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsListViewModel.swift; sourceTree = "<group>"; };
+		4E07CC1824187D54000F2FB3 /* TermEditingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermEditingViewModel.swift; sourceTree = "<group>"; };
 		4E0F2AC723F21CEA0065AB30 /* TermsCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsCompleteView.swift; sourceTree = "<group>"; };
 		4E32167923E8E063006B2288 /* TermEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermEditingView.swift; sourceTree = "<group>"; };
 		4E6FA16523E5152600EF4DCC /* qwizzard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qwizzard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +61,7 @@
 		4ED2DBB22412AEA2000E1DD8 /* TermsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsRepository.swift; sourceTree = "<group>"; };
 		4ED2DBB42412AEDD000E1DD8 /* JSONTermsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTermsRepository.swift; sourceTree = "<group>"; };
 		4ED6DF052411165100A062CC /* terms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = terms.json; sourceTree = "<group>"; };
+		4EED91292418F09A00188351 /* LearnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E07CC1724187D35000F2FB3 /* TermEditingView */ = {
+			isa = PBXGroup;
+			children = (
+				4E32167923E8E063006B2288 /* TermEditingView.swift */,
+				4E07CC1824187D54000F2FB3 /* TermEditingViewModel.swift */,
+			);
+			path = TermEditingView;
+			sourceTree = "<group>";
+		};
 		4E6FA15C23E5152600EF4DCC = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +112,7 @@
 		4E6FA16723E5152600EF4DCC /* qwizzard */ = {
 			isa = PBXGroup;
 			children = (
+				4EED912B2418F26A00188351 /* Models */,
 				4E6FA16823E5152600EF4DCC /* AppDelegate.swift */,
 				4E6FA16A23E5152600EF4DCC /* SceneDelegate.swift */,
 				4E6FA16C23E5152600EF4DCC /* TermCreationView.swift */,
@@ -104,15 +120,8 @@
 				4E6FA17323E5152800EF4DCC /* LaunchScreen.storyboard */,
 				4E6FA17623E5152800EF4DCC /* Info.plist */,
 				4E6FA17023E5152800EF4DCC /* Preview Content */,
-				4E86F4C3241545DF00E43F18 /* TermsListView */,
-				4E32167923E8E063006B2288 /* TermEditingView.swift */,
-				4E932F8E23ECF3B800997613 /* CardView.swift */,
-				4E932F9023ECF4F500997613 /* LearnView.swift */,
-				4E03843A23F0A44B00FDBEE0 /* Term.swift */,
-				4E0F2AC723F21CEA0065AB30 /* TermsCompleteView.swift */,
+				4EED912C2418F2C200188351 /* Views */,
 				4ED6DF052411165100A062CC /* terms.json */,
-				4ED2DBB22412AEA2000E1DD8 /* TermsRepository.swift */,
-				4ED2DBB42412AEDD000E1DD8 /* JSONTermsRepository.swift */,
 			);
 			path = qwizzard;
 			sourceTree = "<group>";
@@ -138,8 +147,40 @@
 			children = (
 				4E721F5023E7782B0034B218 /* TermsListView.swift */,
 				4E86F4C12415459100E43F18 /* TermsListRowView.swift */,
+				4E07CC1524187CDF000F2FB3 /* TermsListViewModel.swift */,
 			);
 			path = TermsListView;
+			sourceTree = "<group>";
+		};
+		4EED91282418F07E00188351 /* LearnView */ = {
+			isa = PBXGroup;
+			children = (
+				4E0F2AC723F21CEA0065AB30 /* TermsCompleteView.swift */,
+				4E932F9023ECF4F500997613 /* LearnView.swift */,
+				4EED91292418F09A00188351 /* LearnViewModel.swift */,
+			);
+			path = LearnView;
+			sourceTree = "<group>";
+		};
+		4EED912B2418F26A00188351 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4E03843A23F0A44B00FDBEE0 /* Term.swift */,
+				4ED2DBB22412AEA2000E1DD8 /* TermsRepository.swift */,
+				4ED2DBB42412AEDD000E1DD8 /* JSONTermsRepository.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		4EED912C2418F2C200188351 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4E86F4C3241545DF00E43F18 /* TermsListView */,
+				4E07CC1724187D35000F2FB3 /* TermEditingView */,
+				4E932F8E23ECF3B800997613 /* CardView.swift */,
+				4EED91282418F07E00188351 /* LearnView */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,15 +288,18 @@
 				4E932F9123ECF4F500997613 /* LearnView.swift in Sources */,
 				4ED2DBB32412AEA2000E1DD8 /* TermsRepository.swift in Sources */,
 				4E6FA16923E5152600EF4DCC /* AppDelegate.swift in Sources */,
+				4EED912A2418F09A00188351 /* LearnViewModel.swift in Sources */,
 				4E86F4C22415459100E43F18 /* TermsListRowView.swift in Sources */,
 				4E0F2AC823F21CEA0065AB30 /* TermsCompleteView.swift in Sources */,
 				4E32167A23E8E063006B2288 /* TermEditingView.swift in Sources */,
+				4E07CC1624187CDF000F2FB3 /* TermsListViewModel.swift in Sources */,
 				4E721F5123E7782B0034B218 /* TermsListView.swift in Sources */,
 				4E6FA16B23E5152600EF4DCC /* SceneDelegate.swift in Sources */,
 				4ED2DBB52412AEDD000E1DD8 /* JSONTermsRepository.swift in Sources */,
 				4E03843B23F0A44B00FDBEE0 /* Term.swift in Sources */,
 				4E932F8F23ECF3B800997613 /* CardView.swift in Sources */,
 				4E6FA16D23E5152600EF4DCC /* TermCreationView.swift in Sources */,
+				4E07CC1924187D54000F2FB3 /* TermEditingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

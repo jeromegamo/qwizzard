@@ -19,6 +19,14 @@ struct TermCreationView: View {
 	let didCreateTerm : (Term) -> ()
 	let createTerm: TermRepository.Create
 	
+	init(createTerm: @escaping TermRepository.Create,
+			 didCreateTerm: @escaping (Term) -> (),
+			 _ viewModel: TermCreationViewModel) {
+		self.createTerm = createTerm
+		self.viewModel = viewModel
+		self.didCreateTerm = didCreateTerm
+	}
+	
 	var body: some View {
 		VStack {
 			Group {
@@ -53,14 +61,7 @@ struct TermCreationView: View {
 			break
 		}
 	}
-	
-	init(createTerm: @escaping TermRepository.Create,
-			didCreateTerm: @escaping (Term) -> (),
-			 _ viewModel: TermCreationViewModel) {
-		self.createTerm = createTerm
-		self.viewModel = viewModel
-		self.didCreateTerm = didCreateTerm
-	}
+
 }
 
 struct TermCreationView_Previews: PreviewProvider {
