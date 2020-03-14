@@ -26,14 +26,16 @@ struct TermsListRowView_Previews: PreviewProvider {
 				Group {
 						TermsListRowView(
 								term: Term(question: "matron",
-													 answer: "an older married woman.")
+													 answer: "an older married woman.",
+													 order: 0)
 						)
 						.previewLayout(.fixed(width: 400, height: 130))
 						.previewDisplayName("Short definition")
 						
 						TermsListRowView(
 								term: Term(question: "paradox",
-													 answer: "a self-contradictory statement or proposition, that when investigated or explained, may prove to be well founded or true.")
+													 answer: "a self-contradictory statement or proposition, that when investigated or explained, may prove to be well founded or true.",
+													 order: 0)
 						)
 						.previewLayout(.fixed(width: 400, height: 130))
 						.previewDisplayName("Long definition")

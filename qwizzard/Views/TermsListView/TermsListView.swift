@@ -40,7 +40,6 @@ struct TermsListView: View {
 							}
 					}
 					.onDelete(perform: vm.delete)
-					.onMove(perform: vm.move)
 			}
 			.navigationBarTitle(Text("Questions"), displayMode: .inline)
 			.navigationBarItems(trailing:

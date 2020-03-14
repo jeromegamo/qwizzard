@@ -12,6 +12,7 @@ class TermEditingViewModel: ObservableObject {
 	@Published var question: String
 	@Published var answer: String
 	private let id: UUID
+	private let order: Int
 	private let didEditTerm : (Term) -> ()
 	private let saveTerm: TermRepository.Save
 	
@@ -23,12 +24,14 @@ class TermEditingViewModel: ObservableObject {
 		self.id = term.id
 		self.question = term.question
 		self.answer = term.answer
+		self.order = term.order
 	}
 	
 	func save() {
 		let term = Term(id: self.id,
 										question: self.question,
-										answer: self.answer)
+										answer: self.answer,
+										order: self.order)
 		
 		if case (.none) = saveTerm(term) {
 			didEditTerm(term)

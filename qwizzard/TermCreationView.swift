@@ -47,9 +47,12 @@ struct TermCreationView: View {
 	}
 	
 	func creationAction() {
+		//TODO: get max order
+		let order = 0
 		let term = Term(
 		question: self.viewModel.question,
-		answer: self.viewModel.answer)
+		answer: self.viewModel.answer,
+		order: order)
 		
 		switch self.createTerm(term) {
 		case .none:

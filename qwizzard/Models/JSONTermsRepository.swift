@@ -89,9 +89,18 @@ enum JSONTermsRepository {
 		
 		do {
 			let data = try Data(contentsOf: URL(fileURLWithPath: path))
-			return try decoder.decode([Term].self, from: data)
+			let result = try decoder.decode([Term].self, from: data)
+			return result.sorted { (a, b) -> Bool in
+				a.order < b.order
+			}
 		} catch {
 			fatalError(error.localizedDescription)
 		}
+	}
+	
+	static func getNextOrderNumber() -> Int {
+		getAll()
+			.map { $0.order }
+			.max() ?? 0
 	}
 }

@@ -26,6 +26,7 @@
 		4ED2DBB52412AEDD000E1DD8 /* JSONTermsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ED2DBB42412AEDD000E1DD8 /* JSONTermsRepository.swift */; };
 		4ED6DF062411165100A062CC /* terms.json in Resources */ = {isa = PBXBuildFile; fileRef = 4ED6DF052411165100A062CC /* terms.json */; };
 		4EED912A2418F09A00188351 /* LearnViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED91292418F09A00188351 /* LearnViewModel.swift */; };
+		4EED912F241910F100188351 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED912E241910F100188351 /* CardViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		4ED2DBB42412AEDD000E1DD8 /* JSONTermsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONTermsRepository.swift; sourceTree = "<group>"; };
 		4ED6DF052411165100A062CC /* terms.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = terms.json; sourceTree = "<group>"; };
 		4EED91292418F09A00188351 /* LearnViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnViewModel.swift; sourceTree = "<group>"; };
+		4EED912E241910F100188351 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,10 +179,19 @@
 			children = (
 				4E86F4C3241545DF00E43F18 /* TermsListView */,
 				4E07CC1724187D35000F2FB3 /* TermEditingView */,
-				4E932F8E23ECF3B800997613 /* CardView.swift */,
+				4EED912D241910DB00188351 /* CardView */,
 				4EED91282418F07E00188351 /* LearnView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4EED912D241910DB00188351 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				4E932F8E23ECF3B800997613 /* CardView.swift */,
+				4EED912E241910F100188351 /* CardViewModel.swift */,
+			);
+			path = CardView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,6 +300,7 @@
 				4ED2DBB32412AEA2000E1DD8 /* TermsRepository.swift in Sources */,
 				4E6FA16923E5152600EF4DCC /* AppDelegate.swift in Sources */,
 				4EED912A2418F09A00188351 /* LearnViewModel.swift in Sources */,
+				4EED912F241910F100188351 /* CardViewModel.swift in Sources */,
 				4E86F4C22415459100E43F18 /* TermsListRowView.swift in Sources */,
 				4E0F2AC823F21CEA0065AB30 /* TermsCompleteView.swift in Sources */,
 				4E32167A23E8E063006B2288 /* TermEditingView.swift in Sources */,

@@ -11,17 +11,23 @@ struct Term: Identifiable, Encodable, Decodable {
 	let id: UUID
 	let question: String
 	let answer: String
+	let order: Int
 	
-	init(id: UUID = UUID(), question: String, answer: String) {
+	init(id: UUID = UUID(),
+			 question: String,
+			 answer: String,
+			 order: Int) {
 		self.id = id
 		self.question = question
 		self.answer = answer
+		self.order = order
 	}
 	
 	enum TermCodingKeys: String, CodingKey {
 		case id
 		case question
 		case answer
+		case order
 	}
 
 	func encode(to encoder: Encoder) throws {
@@ -30,6 +36,7 @@ struct Term: Identifiable, Encodable, Decodable {
 		try container.encode(id, forKey: .id)
 		try container.encode(question, forKey: .question)
 		try container.encode(answer, forKey: .answer)
+		try container.encode(order, forKey: .order)
 	}
 	
 	init(from decoder: Decoder) throws {
@@ -37,5 +44,6 @@ struct Term: Identifiable, Encodable, Decodable {
 		id = try value.decode(UUID.self, forKey: .id)
 		question = try value.decode(String.self, forKey: .question)
 		answer = try value.decode(String.self, forKey: .answer)
+		order = try value.decode(Int.self, forKey: .order)
 	}
 }

@@ -42,7 +42,7 @@ struct TermEditingView_Previews: PreviewProvider {
 	static var previews: some View {
 		
 		let saveTerm: (Term) -> TermRepository.SaveError? = { term in .none }
-		let term = Term(question: "", answer: "")
+		let term = Term(question: "", answer: "", order: 0)
 		let editTerm: (Term) -> () = {t in }
 		
 		return NavigationView {

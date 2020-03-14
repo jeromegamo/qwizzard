@@ -35,32 +35,20 @@ enum DragState {
     }
 }
 
-class CardViewModel: ObservableObject, Identifiable {
-    @Published var side: Side = .front
-    
-    var termId: UUID {
-        term.id
-    }
-    
-    let term: Term
-    
-    init(term: Term) {
-        self.term = term
-    }
-}
+
 
 struct CardView: View {
-    @ObservedObject var viewModel: CardViewModel
+    @ObservedObject var vm: CardViewModel
     @GestureState private var cardOffset = CGSize.zero
     var body: some View {
         
         VStack {
             VStack {
                 ZStack {
-                    if self.viewModel.side == .front {
-                        Text(self.viewModel.term.question)
+                    if self.vm.side == .front {
+											Text(self.vm.term.question)
                     } else {
-                        Text(self.viewModel.term.answer)
+                        Text(self.vm.term.answer)
                             .scaleEffect(x: -1, y: 1)
                     }
                 }
@@ -73,11 +61,11 @@ struct CardView: View {
         }
         .background(Color.green.shadow(radius: 2))
         .padding()
-        .scaleEffect(x: self.viewModel.side == .front ? 1 : -1, y: 1)
+        .scaleEffect(x: self.vm.side == .front ? 1 : -1, y: 1)
         .offset(self.cardOffset)
         .onTapGesture {
             withAnimation(Animation.linear(duration: 0.5)) {
-                self.viewModel.side.toggle()
+                self.vm.side.toggle()
             }
         }
         .gesture(
@@ -96,13 +84,16 @@ struct CardView: View {
     
     init(_ viewModel: CardViewModel,
          didDragCard: @escaping (_ offset: CGSize) -> Void) {
-        self.viewModel = viewModel
+        self.vm = viewModel
         self.didDragCard = didDragCard
     }
 }
 
 struct CardView_Previews: PreviewProvider {
-    static var viewModel = CardViewModel(term: Term(question: "Stupid", answer: "having or showing a great lack of intelligence or common sense: I was stupid enough to think she was perfect."))
+    static var viewModel = CardViewModel(term:
+			Term(question: "Stupid",
+					 answer: "having or showing a great lack of intelligence or common sense: I was stupid enough to think she was perfect.",
+					 order: 0))
     
     static var previews: some View {
         VStack {

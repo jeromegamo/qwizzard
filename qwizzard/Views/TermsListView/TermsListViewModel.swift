@@ -38,10 +38,6 @@ class TermsListViewModel: ObservableObject {
 		}
 	}
 	
-	func move(from indicies: IndexSet, to destination: Int) {
-		terms.move(fromOffsets: indicies, toOffset: destination)
-	}
-	
 	func loadTerms() {
 		terms = getAllTerms()
 	}

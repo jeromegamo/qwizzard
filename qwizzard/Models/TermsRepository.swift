@@ -11,6 +11,7 @@ enum TermRepository {
 	typealias Create = (Term) -> CreateError?
 	typealias GetAll = () -> [Term]
 	typealias Delete = (Term) -> DeleteError?
+	typealias GetNextOrderNumber = () -> Int
 	
 	//TODO: Refactor returned errors, I have no idea yet. Not familiar
 	enum SaveError: Error {
